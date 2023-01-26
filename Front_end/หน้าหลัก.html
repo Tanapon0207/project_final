@@ -38,6 +38,35 @@
 </head>
 
 <body>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://blog.templatetoaster.com/wp-content/uploads/2020/05/Bootstrap-5.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://htmlburger.com/blog/wp-content/uploads/2021/02/lets-talk-about-bootstrap.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://d33wubrfki0l68.cloudfront.net/2c29f9c08cfa649285bedc7fa441c6cfb6ccbdf9/abf46/blog/images/bootstrap-5-alpha.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
   <div id="id01" class="modal, container" style="width: 70%;height: 70%;">
 
     <form class="modal-content animate" action="/action_page.php" method="post">
@@ -46,6 +75,8 @@
           title="Close Modal">&times;</span>
        
       </div>
+
+    
 
       <div class="login-form,container" style="width: 100%; height: 100%;">
         <form action="/login" method="post">
