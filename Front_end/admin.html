@@ -33,62 +33,27 @@
 
 
 </head>
-
-<style>
-    body {
-        background-color: rgb(214, 214, 214)
-    }
-
-    #piechartTimelyResponse {
-        width: 100%;
-        height: 400px;
-    }
-
-    #barchartSubmitted {
-        width: 80%;
-        height: 300px;
-    }
-
-
-</style>
-
 <body>
-
-
-    
-                <nav class="navbar navbar-dark bg-dark text-light">
-                    <div class="container-fluid">
-                        <a class="navbar-brand">New Car Sales in Norway</a>
-                        <div class="d-flex">
-                            <input class="form-control me-2" id="searchTextBox" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" onclick="loadQueryTable();return false;">Search</button>
-                        </div>
-                    </div>
-                </nav>
+    <div class="container">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.wu.ac.th/th">
+                    <img src="ตรามหาลัย.png" alt="" width="100" height="100">
+                    ระบบ e - services ศูนย์เทคโนโลยีดิจิทัล มหาวิทยาลัยวลัยลักษณ์
+                </a>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">หน้าหลัก</a>
+                    </li>
             </div>
-
-    <br>
-    <div class="container form-control table-responsive">
-        <br>
-        <center>
-            <font size="5" color="#000000">ยอดขายรถยนต์ใหม่ในนอร์เวย์ ยอดขายรถยนต์รายเดือนปี 2007-2017 ตามยี่ห้อและรุ่นยอดนิยม</font>
-        </center><br>
-        <center>
-            <div id="piechartTimelyResponse"></div>
-            <br>
-            <div id="barchartSubmitted"></div>
-            <br>
-
-        </center>
+        </nav>
     </div>
 
-
-    <br>
-    <div class="form-control">
+   
+    <div class="container">
         <div class="container d-flex bd-highlight mb-3">
             <div class="me-auto p-2 bd-highlight">
-                <h1>
-                   ตารางข้อมูล
+                <h1>ตารางข้อมูล</h1>
             </div>
             <div class="p-2 bd-highlight">
                 <button type="button" class="btn btn-outline-success" onclick="showCompliantCreateBox()">
@@ -102,18 +67,18 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Month</th>
+                        <th scope="col">ชื่อผู้ใช้</th>
+                        <th scope="col">รหัสผ่าน</th>
                         <th scope="col">Make</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Pct</th>
-                       <th scope="col">Edit/Delete</th>
+                        <th scope="col">Edit/Delete</th>
                     </tr>
                 </thead>
                 <tbody id="mytable">
                     <tr>
                         <th scope="row" colspan="5">
-                            <font color="#FFDD00">กำลังโหลด...</font>
+                            <font color="#0000">กำลังโหลด...</font>
                         </th>
                     </tr>
                 </tbody>
