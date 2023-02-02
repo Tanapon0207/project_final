@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 
 const { MongoClient } = require("mongodb");
-const uri = "mongodb://poom:1234@localhost:27017/?authMechanism=DEFAULT&authSource=data_n";
+const uri = "mongodb://Admin:63104111@127.0.0.1:27017/?authMechanism=DEFAULT&authSource=db_project";
 const connectDB = async() => {
     try {
         const client = new MongoClient(uri);
@@ -28,7 +28,7 @@ connectDB();
 app.get('/complaints', async(req, res) => {
     const client = new MongoClient(uri);
     await client.connect();
-    const objects = await client.db('data_n').collection('data_c')
+    const objects = await client.db('db_project').collection('admin')
         .find({}).sort({ "Date received": -1 }).limit(4378).toArray();
 
     await client.close();
@@ -40,12 +40,11 @@ app.post('/complaints/create', async(req, res) => {
     const object = req.body;
     const client = new MongoClient(uri);
     await client.connect();
-    await client.db('data_n').collection('data_c').insertOne({
-        "Year": object.Year,
-        "Month": object.Month,
-        "Make": object.Make,
-        "Quantity": object.Quantity,
-        "Pct": object.Pct,
+    await client.db('db_project').collection('admin').insertOne({
+        "username": object.username,
+        "password": object.password,
+        "position": object.position,
+        
        
     });
     await client.close();
@@ -62,14 +61,12 @@ app.put('/complaints/update', async(req, res) => {
     const id = object._id;
     const client = new MongoClient(uri);
     await client.connect();
-    await client.db('data_n').collection('data_c').updateOne({ '_id': ObjectId(id) }, {
+    await client.db('db_project').collection('admin').updateOne({ '_id': ObjectId(id) }, {
         "$set": {
         "_id": ObjectId(id),
-        "Year": object.Year,
-        "Month": object.Month,
-        "Make": object.Make,
-        "Quantity": object.Quantity,
-        "Pct": object.Pct,
+        "username": object.username,
+        "password": object.password,
+        "position": object.position,
         }
     });
     await client.close();
@@ -86,7 +83,7 @@ app.delete('/complaints/delete', async(req, res) => {
     const id = req.body._id;
     const client = new MongoClient(uri);
     await client.connect();
-    await client.db('data_n').collection('data_c').deleteOne({ '_id': ObjectId(id) });
+    await client.db('db_project').collection('admin').deleteOne({ '_id': ObjectId(id) });
     await client.close();
     res.status(200).send({
         "status": "ok",
@@ -99,7 +96,7 @@ app.get('/complaints/:id', async(req, res) => {
     const id = req.params.id;
     const client = new MongoClient(uri);
     await client.connect();
-    const user = await client.db('data_n').collection('data_c').findOne({ "_id": ObjectId(id) });
+    const user = await client.db('db_project').collection('admin').findOne({ "_id": ObjectId(id) });
     await client.close();
     res.status(200).send({
         "status": "ok",
@@ -114,7 +111,7 @@ app.get('/complaints/findtext/:searchText', async(req, res) => {
     const searchText = params.searchText
     const client = new MongoClient(uri);
     await client.connect();
-    const objects = await client.db('data_n').collection('data_c').find({ $text: { $search: searchText } }).sort({ "FIELD": -1 }).limit(4378).toArray();
+    const objects = await client.db('db_project').collection('admin').find({ $text: { $search: searchText } }).sort({ "FIELD": -1 }).limit(4378).toArray();
     await client.close();
     res.status(200).send({
         "status": "ok",
@@ -129,7 +126,7 @@ app.get('/complaints/Make/:searchText', async(req, res) => {
     const searchText = params.searchText
     const client = new MongoClient(uri);
     await client.connect();
-    const objects = await client.db('data_n').collection('data_c').find({ $text: { $search: searchText } }).sort({ "Date received": -1 }).limit(4378).toArray();
+    const objects = await client.db('db_project').collection('admin').find({ $text: { $search: searchText } }).sort({ "Date received": -1 }).limit(4378).toArray();
     await client.close();
     res.status(200).send({
         "status": "ok",
