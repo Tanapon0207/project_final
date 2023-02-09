@@ -33,7 +33,7 @@
 
 
 </head>
-<body>
+<body onload="loadTable()">
     <div class="container">
         <nav class="navbar">
             <div class="container-fluid">
@@ -43,10 +43,11 @@
                 </a>
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">หน้าหลัก</a>
+                        <a class="nav-link active" aria-current="page" href="หน้าหลัก.html">หน้าหลัก</a>
                     </li>
             </div>
         </nav>
+
     </div>
 
    
@@ -69,10 +70,8 @@
                         <th scope="col">#</th>
                         <th scope="col">ชื่อผู้ใช้</th>
                         <th scope="col">รหัสผ่าน</th>
-                        <th scope="col">Make</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Pct</th>
-                        <th scope="col">Edit/Delete</th>
+                        <th scope="col">ตำเเหน่ง</th>
+                       <th scope="col">Edit/Delete</th>
                     </tr>
                 </thead>
                 <tbody id="mytable">
@@ -85,8 +84,7 @@
             </table>
         </div>
     </div>
-    </div>
-    </div>
+   
 
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>

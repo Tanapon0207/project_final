@@ -29,11 +29,12 @@ app.get('/complaints', async(req, res) => {
     const client = new MongoClient(uri);
     await client.connect();
     const objects = await client.db('db_project').collection('admin')
-        .find({}).sort({ "Date received": -1 }).limit(4378).toArray();
+        .find({}).limit(4378).toArray();
 
     await client.close();
     res.status(200).send(objects);
 })
+
 
 // Create API
 app.post('/complaints/create', async(req, res) => {
@@ -41,9 +42,10 @@ app.post('/complaints/create', async(req, res) => {
     const client = new MongoClient(uri);
     await client.connect();
     await client.db('db_project').collection('admin').insertOne({
+        id: parseInt(object.id),
         "username": object.username,
         "password": object.password,
-        "position": object.position,
+        "position": object.position
         
        
     });
@@ -54,6 +56,9 @@ app.post('/complaints/create', async(req, res) => {
         "object": object
     });
 })
+
+
+
 
 const { ObjectId } = require('mongodb')
 app.put('/complaints/update', async(req, res) => {
