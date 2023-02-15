@@ -112,8 +112,8 @@
         if (this.readyState == 4 && this.status == 200) {
             const objects = JSON.parse(this.responseText);
         Swal.fire(
-        "Good job!", 
-        "Create Compliant Successfully!", 
+        "สำเร็จ!", 
+        "คุณได้ทำการเพิ่มข้อมูลเรียบร้อยเเล้ว!", 
         "success"
         );
         loadTable();
@@ -133,8 +133,8 @@
             const objects = JSON.parse(this.responseText);
             console.log(objects);
             Swal.fire(
-                'Good job!',
-                'Delete Compliant Successfully!',
+                'สำเร็จ!',
+                'คุณได้ทำการลบข้อมูลเรียบร้อยเเล้ว!',
                 'success'
             );
             loadTable();
@@ -205,8 +205,8 @@
       if (this.readyState == 4 && this.status == 200) {
         const objects = JSON.parse(this.responseText);
         Swal.fire(
-        "Good job!", 
-        "Update Compliant Successfully!", 
+        "สำเร็จ", 
+        "คุณได้ทำการแก้ไขข้อมูลเรียบร้อยเเล้ว!", 
         "success"
         );
         loadTable();
